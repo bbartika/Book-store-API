@@ -22,7 +22,7 @@ The Bookstore API is a RESTful service built with Express.js and Sequelize, allo
 1. **Clone the Repository**
 
 ```bash
-git clone https://github.com/ashishkumar082018/bookstore-api.git
+git clone https://github.com/bbartika/Book-store-API.git
 cd bookstore-api
 ```
 
@@ -42,12 +42,12 @@ npm install
    Create a .env file in the root directory and add the following:
 
 ```bash
-DB_NAME=bookstore
+DB_NAME=books_store
 DB_USER=root
-DB_PASSWORD=yourpassword
+DB_PASSWORD=mypassword
 DB_HOST=localhost
 DB_DIALECT=mysql
-JWT_SECRET=your_jwt_secret
+JWT_SECRET=my_jwt_secret
 ```
 
 5.  **Start the Server**
@@ -61,7 +61,7 @@ The server will run on http://localhost:3000.
 # Environment Variables
 
 - `PORT`: 3000
-- `DB_NAME`: bookstore-api
+- `DB_NAME`: books_store
 - `DB_USER`: root
 - `DB_PASSWORD`: password
 - `DB_HOST`: localhost
@@ -72,11 +72,11 @@ The server will run on http://localhost:3000.
 
 The schema includes the following tables:
 
-- Users
+- User
 - Books
-- Carts
+- Cart
 - CartItems
-- Orders
+- Order
 - OrderItems
 
 Refer to the `schema.sql` file in this repository for the complete database schema.
@@ -115,12 +115,6 @@ Refer to the `schema.sql` file in this repository for the complete database sche
    **Headers**: `Authorization: Bearer <token>`  
    **Body**:
 
-```json
-{
-  "bookId": 1,
-  "quantity": 2
-}
-```
 
 3. **Remove a Book from the Cart**
 
@@ -129,11 +123,7 @@ Refer to the `schema.sql` file in this repository for the complete database sche
    **Headers** : `Authorization: Bearer <token>`  
    **Body** :
 
-```json
-{
-  "quantity": 1
-}
-```
+
 
 ## Orders API
 
@@ -155,12 +145,7 @@ Refer to the `schema.sql` file in this repository for the complete database sche
    **Headers** : None  
    **Body** :
 
-```json
-{
-  "username": "user123",
-  "password": "password123"
-}
-```
+
 
 2. **Login a User**
 
@@ -169,12 +154,7 @@ Refer to the `schema.sql` file in this repository for the complete database sche
    **Headers** : None  
    **Body** :
 
-```json
-{
-  "username": "user123",
-  "password": "password123"
-}
-```
+
 
 3. **Get Order History**
 
