@@ -18,7 +18,7 @@ CREATE TABLE Books (
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
--- Carts Table
+-- Cart Table
 CREATE TABLE Cart (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
@@ -52,7 +52,7 @@ CREATE TABLE Order (
     FOREIGN KEY (user_id) REFERENCES User(id) ON DELETE CASCADE
 );
 
--- OrderItems Table
+-- Order_Items Table
 CREATE TABLE Order_Items (
     id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT,
