@@ -1,0 +1,93 @@
+[
+    {
+      "book_id": 1,
+      "book_name": "The Great Gatsby",
+      "book_quantity": 10,
+      "book_price": 15.99
+    },
+    {
+      "book_id": 2,
+      "book_name": "1984",
+      "book_quantity": 8,
+      "book_price": 12.49
+    },
+    {
+      "book_id": 3,
+      "book_name": "To Kill a Mockingbird",
+      "book_quantity": 7,
+      "book_price": 18.99
+    },
+    {
+      "book_id": 4,
+      "book_name": "Pride and Prejudice",
+      "book_quantity": 5,
+      "book_price": 10.99
+    },
+    {
+      "book_id": 5,
+      "book_name": "The Catcher in the Rye",
+      "book_quantity": 4,
+      "book_price": 9.99
+    },
+    {
+      "book_id": 6,
+      "book_name": "The Lord of the Rings",
+      "book_quantity": 12,
+      "book_price": 25.99
+    },
+    {
+      "book_id": 7,
+      "book_name": "Harry Potter and the Sorcerer's Stone",
+      "book_quantity": 15,
+      "book_price": 20.99
+    },
+    {
+      "book_id": 8,
+      "book_name": "The Hobbit",
+      "book_quantity": 10,
+      "book_price": 14.49
+    },
+    {
+      "book_id": 9,
+      "book_name": "The Da Vinci Code",
+      "book_quantity": 6,
+      "book_price": 19.99
+    },
+    {
+      "book_id": 10,
+      "book_name": "The Alchemist",
+      "book_quantity": 9,
+      "book_price": 11.49
+    },
+    {
+      "book_id": 11,
+      "book_name": "The Hunger Games",
+      "book_quantity": 13,
+      "book_price": 14.99
+    },
+    {
+      "book_id": 12,
+      "book_name": "Gone Girl",
+      "book_quantity": 8,
+      "book_price": 13.99
+    },
+    {
+      "book_id": 13,
+      "book_name": "The Fault in Our Stars",
+      "book_quantity": 10,
+      "book_price": 10.49
+    },
+    {
+      "book_id": 14,
+      "book_name": "The Girl on the Train",
+      "book_quantity": 7,
+      "book_price": 16.49
+    },
+    {
+      "book_id": 15,
+      "book_name": "Life of Pi",
+      "book_quantity": 5,
+      "book_price": 12.99
+    }
+  ]
+  
