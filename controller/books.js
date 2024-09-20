@@ -1,8 +1,6 @@
 const { Books }  = require('../models');
 const sequelize=require('../utils/database')
 
-
-
 exports.listAllBooks=async(req,res)=>{
     
     try{ 
