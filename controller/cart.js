@@ -129,65 +129,65 @@ exports.getCartDetails=async(req,res)=>{
         res.status(500).json({error:err})
     }
 
-}
+};
 
-exports.removeFromCart = async(req,res)=>{
-    const transaction = await sequelize.transaction();
-    
-    // const user=req.user;
-    // const userId = user.id;
-    // const itemId = req.params.itemId;
-    
-    try{
-      
-        const cart = await Cart.findOne({where:{user_id:req.user.id}});
+exports.removeFromCart = async (req, res) => {
+  const transaction = await sequelize.transaction(); 
+  
+  try {
+      // Find the user's cart
+      const cart = await Cart.findOne({ where: { user_id: req.user.id } });
 
-        const cartItem = await Cart_Items.findOne({where:{cart_id:cart.id,book_id:req.params.itemId},transaction});
-         
-        const book = await Books.findByPk(cartItem.book_id);
-        if (!book) {
-           return res.status(404).json({ error: 'Book not found' });
-        }
+      if (!cart) {
+          return res.status(404).json({ error: 'Cart not found' });
+      }
 
-        if (cartItem) {
-            // Update the quantity
-      
-            const newstock_quantity = Number(book.stock_quantity) + Number(cartItem.quantity);
-          
-          await Books.update({
-            stock_quantity:newstock_quantity
-          },{
-            where:{book_id:book.book_id},
-            transaction:transaction
-          });
+      // Find the cart item
+      const cartItem = await Cart_Items.findOne({
+          where: { cart_id: cart.id, book_id: req.params.itemId },
+          transaction
+      });
 
-           
-          
-          await cartItem.destroy();
-           
-          
+      if (!cartItem) {
+          await transaction.rollback();
+          return res.status(404).json({ error: 'Cart Item not found' });
+      }
 
-          await transaction.commit();
+      // Find the associated book
+      const book = await Books.findByPk(cartItem.book_id);
 
+      if (!book) {
+          await transaction.rollback();
+          return res.status(404).json({ error: 'Book not found' });
+      }
 
-          } 
-          else {
-            await transaction.rollback();
+      // Update the book's stock quantity
+      const newStockQuantity = Number(book.stock_quantity) + Number(cartItem.quantity);
 
-        
-            return res.status(404).json({error:'Cart Item not found'});
-        }
+      await Books.update({
+          stock_quantity: newStockQuantity
+      }, {
+          where: { book_id: book.book_id },
+          transaction
+      });
 
-        
-        
-        res.status(204).end();
+      // Remove the cart item
+      await cartItem.destroy({ transaction });
 
-    }
-    catch(err){
-        res.status(500).json({error:err})
-    }
+      // Commit the transaction
+      await transaction.commit();
 
-}
+      // Send success response
+      return res.status(200).json({ message: "Cart item removed successfully" });
+
+  } catch (err) {
+      // Rollback the transaction in case of an error
+      await transaction.rollback();
+      console.error('Error removing from cart:', err); // Log the error for debugging
+      return res.status(500).json({ error: err.message || 'Internal server error' });
+  }
+};
+
 
 
 // {
