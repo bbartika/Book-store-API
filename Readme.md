@@ -2,7 +2,9 @@
 
 ## Overview
 
-The Bookstore API is a RESTful service built with Express.js and Sequelize, allowing users to manage a collection of books, manage their carts, and place orders. This README provides setup instructions, API endpoint details, and usage information.
+The Book-store-API is a RESTful service built with Node.js, Express.js and Sequelize,JWT. There is a store of Books, and multiple users can be there for accessing books means they can see any book-details, and can manage their cart for books,can place order the book/books. And here every User is authenicated with the help of JWT implementation
+
+This README provides setup instructions, API endpoint details, and usage information.
 
 ## Table of Contents
 
@@ -66,7 +68,7 @@ The server will run on http://localhost:3000.
 - `DB_PASSWORD`: password
 - `DB_HOST`: localhost
 - `DB_DIALECT`: mysql
-- `JWT_SECRET`: Secret
+- `JWT_SECRET`: my-secret-key
 
 ## Database Schema
 
